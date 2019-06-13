@@ -1,0 +1,106 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.sskj.admin.dao.StockUserBlockLastMapper">
+  <resultMap id="BaseResultMap" type="com.sskj.admin.domain.StockUserBlockLast">
+    <id column="id" jdbcType="INTEGER" property="id" />
+    <result column="stock_user_id" jdbcType="INTEGER" property="stockUserId" />
+    <result column="code" jdbcType="VARCHAR" property="code" />
+    <result column="last_block" jdbcType="INTEGER" property="lastBlock" />
+    <result column="update_date" jdbcType="TIMESTAMP" property="updateDate" />
+    <result column="is_del" jdbcType="CHAR" property="isDel" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    id, stock_user_id, code, last_block, update_date, is_del
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from stock_user_block_last
+    where id = #{id,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
+    delete from stock_user_block_last
+    where id = #{id,jdbcType=INTEGER}
+  </delete>
+  <insert id="insert" parameterType="com.sskj.admin.domain.StockUserBlockLast">
+    insert into stock_user_block_last (id, stock_user_id, code, 
+      last_block, update_date, is_del
+      )
+    values (#{id,jdbcType=INTEGER}, #{stockUserId,jdbcType=INTEGER}, #{code,jdbcType=VARCHAR}, 
+      #{lastBlock,jdbcType=INTEGER}, #{updateDate,jdbcType=TIMESTAMP}, #{isDel,jdbcType=CHAR}
+      )
+  </insert>
+  <insert id="insertSelective" parameterType="com.sskj.admin.domain.StockUserBlockLast">
+    insert into stock_user_block_last
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        id,
+      </if>
+      <if test="stockUserId != null">
+        stock_user_id,
+      </if>
+      <if test="code != null">
+        code,
+      </if>
+      <if test="lastBlock != null">
+        last_block,
+      </if>
+      <if test="updateDate != null">
+        update_date,
+      </if>
+      <if test="isDel != null">
+        is_del,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        #{id,jdbcType=INTEGER},
+      </if>
+      <if test="stockUserId != null">
+        #{stockUserId,jdbcType=INTEGER},
+      </if>
+      <if test="code != null">
+        #{code,jdbcType=VARCHAR},
+      </if>
+      <if test="lastBlock != null">
+        #{lastBlock,jdbcType=INTEGER},
+      </if>
+      <if test="updateDate != null">
+        #{updateDate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="isDel != null">
+        #{isDel,jdbcType=CHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.sskj.admin.domain.StockUserBlockLast">
+    update stock_user_block_last
+    <set>
+      <if test="stockUserId != null">
+        stock_user_id = #{stockUserId,jdbcType=INTEGER},
+      </if>
+      <if test="code != null">
+        code = #{code,jdbcType=VARCHAR},
+      </if>
+      <if test="lastBlock != null">
+        last_block = #{lastBlock,jdbcType=INTEGER},
+      </if>
+      <if test="updateDate != null">
+        update_date = #{updateDate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="isDel != null">
+        is_del = #{isDel,jdbcType=CHAR},
+      </if>
+    </set>
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.sskj.admin.domain.StockUserBlockLast">
+    update stock_user_block_last
+    set stock_user_id = #{stockUserId,jdbcType=INTEGER},
+      code = #{code,jdbcType=VARCHAR},
+      last_block = #{lastBlock,jdbcType=INTEGER},
+      update_date = #{updateDate,jdbcType=TIMESTAMP},
+      is_del = #{isDel,jdbcType=CHAR}
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+</mapper>
