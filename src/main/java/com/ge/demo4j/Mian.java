@@ -1,4 +1,4 @@
-package com.ge.demo;
+package com.ge.demo4j;
 
 /**
  * @author dengzhipeng

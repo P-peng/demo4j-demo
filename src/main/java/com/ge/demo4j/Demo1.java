@@ -1,22 +1,17 @@
-package com.ge.demo;
+package com.ge.demo4j;
 
-import com.ge.utils.FileUtils;
 import org.dom4j.Document;
-import org.dom4j.DocumentException;
 import org.dom4j.Element;
-import org.dom4j.Node;
 import org.dom4j.io.OutputFormat;
 import org.dom4j.io.SAXReader;
 import org.dom4j.io.XMLWriter;
-import org.dom4j.tree.BaseElement;
 import org.dom4j.tree.DefaultAttribute;
+import org.dom4j.tree.DefaultElement;
 import org.junit.Test;
 
 import java.io.FileInputStream;
-import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
 import java.util.ArrayList;
-import java.util.Collections;
 import java.util.List;
 
 /**
@@ -38,6 +33,9 @@ public class Demo1 {
         // 格式化输出流，同时指定编码格式。也可以在FileOutputStream中指定。
         OutputFormat format = OutputFormat.createPrettyPrint();
         format.setEncoding("utf-8");
+        format.setNewLineAfterDeclaration(true);
+        format.setTrimText(true);
+        format.setXHTML(true);
         XMLWriter writer = new XMLWriter(new FileOutputStream("src/new.xml"),format);
         writer.write(document);
         writer.close();
@@ -86,16 +84,18 @@ public class Demo1 {
         Document document = getDocument();
         //获取XML文档的根元素
         Element root = document.getRootElement();
-        BaseElement node = new BaseElement("sql");
+
+        DefaultElement node = new DefaultElement("sql");
 
         node.addAttribute("id","Base_Column_List");
 
+        node.setText("\r\nid, stock_user_id, code, last_block, update_date, is_del,id, stock_user_id, code, last_block, update_date, is_del,id, stock_user_id, code, last_block, update_date, is_del");
+
         List list = new ArrayList();
-        list.addAll(Collections.singleton("id, stock_user_id, code, last_block, update_date, is_del,id, stock_user_id, code, last_block, update_date, is_del,id, stock_user_id, code, last_block, update_date, is_del"));
-        node.setContent(list);
-
-
+//        list.addAll(Collections.singleton("id, stock_user_id, code, last_block, update_date, is_del,id, stock_user_id, code, last_block, update_date, is_del,id, stock_user_id, code, last_block, update_date, is_del"));
+//        node.setContent(list);
         root.add(node);
+
         // 新建xml文件
         wireteXml(document);
     }
