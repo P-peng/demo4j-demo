@@ -1,13 +1,22 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
 <mapper namespace="${basePackage}.mapper.${bigClassName}Mapper">
-    <resultMap id="${smallClassName}ResultMap" type="${basePackage}.domain.${bigClassName}">
-        <#list genericFieldList as genericField>
-            <result column="${genericField}" property="${genericField}"/>
-        </#list>
+    <resultMap id="BaseResultMap" type="${basePackage}.domain.${bigClassName}">
     </resultMap>
 
     <sql id="Base_Column_List" >
       ${sqlColumn}
     </sql>
+
+    <sql id="condition" >
+    </sql>
+
+    <sql id="Base_insert">
+    </sql>
+
+    <sql id="Base_insertSelective"></sql>
+
+    <sql id="Base_updateByPrimaryKeySelective"></sql>
+
+    <sql id="Base_updateByPrimaryKey" ></sql>
 </mapper>

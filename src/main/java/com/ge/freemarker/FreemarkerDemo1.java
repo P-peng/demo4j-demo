@@ -10,6 +10,7 @@ import org.junit.Test;
 
 import java.io.FileWriter;
 import java.io.IOException;
+import java.math.BigInteger;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -33,5 +34,6 @@ public class FreemarkerDemo1 {
         Map map = new HashMap();
         map.put("update","123");
         template.process(map, new FileWriter(newPath));
+
     }
 }
