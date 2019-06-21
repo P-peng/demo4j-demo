@@ -8,15 +8,15 @@
       ${sqlColumn}
     </sql>
 
-    <sql id="condition" >
+    <sql id="Condition" >
     </sql>
 
-    <sql id="Base_insert">
+    <sql id="Base_Insert">
     </sql>
 
-    <sql id="Base_insertSelective"></sql>
+    <sql id="Base_InsertSelective"></sql>
 
-    <sql id="Base_updateByPrimaryKeySelective"></sql>
+    <sql id="Base_UpdateByPrimaryKeySelective"></sql>
 
-    <sql id="Base_updateByPrimaryKey" ></sql>
+    <sql id="Base_UpdateByPrimaryKey" ></sql>
 </mapper>

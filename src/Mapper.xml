@@ -7,38 +7,38 @@
         <result column="${genericField}" property="${genericField}"/>
     </#list>
     <#list association as item>
-    <association property="${item.property}" columnPrefix="${item.columnPrefix}"
-                 javaType="${item.javaType}">
-        <!-- 对象的关联 -->
-        <id property="id" column="id"></id>
-    </association>
-</#list>
+        <association property="${item.property}" columnPrefix="${item.columnPrefix}"
+                     javaType="${item.javaType}">
+            <!-- 对象的关联 -->
+            <id property="id" column="id"></id>
+        </association>
+    </#list>
 
-        </resultMap>
+    </resultMap>
 
-<insert id="insert" useGeneratedKeys="true" keyProperty="id">
+    <insert id="insert" useGeneratedKeys="true" keyProperty="id">
 		${insert}
 	</insert>
 
-<delete id="delete">
+    <delete id="delete">
 		${delete}
 	</delete>
 
-<update id="update">
+    <update id="update">
 		${update}
 	</update>
 
-<select id="select" resultMap="${smallClassName}ResultMap">
+    <select id="select" resultMap="${smallClassName}ResultMap">
 		${selectByPrimaryKey}
 	</select>
 
-<select id="queryTotalCount" resultType="int">
+    <select id="queryTotalCount" resultType="int">
 		${queryForCount}
 	</select>
 
-<select id="queryListData" resultMap="${smallClassName}ResultMap">
-${queryListData}
-<if test="pageSize>=0">
-    ${limit}
-</if>
+    <select id="queryListData" resultMap="${smallClassName}ResultMap">
+      ${queryListData}
+        <if test="pageSize>=0">
+      ${limit}
+    </if>
 </select>

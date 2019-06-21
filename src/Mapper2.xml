@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
 <mapper namespace="Mapper">
-    <resultMap id="userResultMap" type="com.ge.domain.User">
-        <result column="123" property="123"/>
-        <result column="123" property="123"/>
-        <result column="123" property="123"/>
+    <resultMap id="BaseResultMap" type="${resultMapType}">
+        <#list genericFieldList as genericField>
+        <result column="${genericField}" property="${genericField}"/>
+        </#list>
     </resultMap>
 </mapper>

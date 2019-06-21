@@ -4,9 +4,11 @@
     <resultMap id="BaseResultMap" type="${basePackage}.domain.${bigClassName}">
     </resultMap>
 
-    <sql id="Base_Column_List"></sql>
+    <sql id="Base_Column_List">
+    </sql>
 
-    <sql id="condition"></sql>
+    <sql id="Condition">
+    </sql>
 
     <select id="getByPrimaryKey" resultMap="BaseResultMap">
     </select>

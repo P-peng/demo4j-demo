@@ -1,5 +1,6 @@
 package com.ge.freemarker;
 
+import com.ge.entity.TemplateBaseMapperBo;
 import com.ge.entity.User;
 import com.sun.xml.internal.bind.v2.model.core.ClassInfo;
 import freemarker.template.Configuration;
@@ -8,10 +9,14 @@ import freemarker.template.TemplateException;
 import freemarker.template.Version;
 import org.junit.Test;
 
+import java.io.File;
 import java.io.FileWriter;
 import java.io.IOException;
 import java.math.BigInteger;
+import java.text.MessageFormat;
+import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 
 /**
@@ -30,10 +35,20 @@ public class FreemarkerDemo1 {
         Version version = new Version("2.3.0");
         Configuration config = new Configuration(version);
         Template template = config.getTemplate(xmlPath);
-        System.out.println();
+
         Map map = new HashMap();
-        map.put("update","123");
-        template.process(map, new FileWriter(newPath));
+        List list = new ArrayList();
+        list.add("123");
+        map.put("updateList",list);
+        map.put("resultMapType","6666666666666");
+
+        TemplateBaseMapperBo bo = new TemplateBaseMapperBo();
+        bo.setUpdateList(list);
+        bo.setResultMapType("xxxxxxxxxxxx");
+
+        String targetFile = MessageFormat.format(newPath, "src", "New");
+        File file = new File(targetFile);
+        template.process(bo, new FileWriter(file));
 
     }
 }
